@@ -1,0 +1,42 @@
+public class Main {
+
+    public static void main(String[] args) {
+  Auto auto1 = new Auto("Fiat", "Cronos");
+
+        auto1.mostrarEstado();
+        auto1.encender();
+        auto1.mostrarEstado();
+        auto1.apagar();
+        auto1.mostrarEstado();
+    }
+}
+
+class Auto {
+
+    String marca;
+    String modelo;
+    boolean encendido = false;
+
+    public Auto(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public void encender() {
+        encendido = true;
+        System.out.println("El auto se ha encendido.");
+    }
+
+    public void apagar() {
+        encendido = false;
+        System.out.println("El auto se ha apagado.");
+    }
+
+    public void mostrarEstado() {
+        if (encendido) {
+            System.out.println("El auto está encendido.");
+        } else {
+            System.out.println("El auto está apagado.");
+        }
+    }
+}
