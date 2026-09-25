@@ -1,2 +1,2 @@
 # POO
-Ejerciacion del aula virtual
+Ejercitacion del aula virtual
