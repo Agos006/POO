@@ -1,0 +1,40 @@
+public class Libro {
+private String titulo;
+private String autor;
+private int paginasTotales;
+private int paginaActual;  
+
+    public Libro(String titulo, String autor, int paginasTotales) {
+  this.titulo = titulo;
+  this.autor = autor;
+  this.paginasTotales = paginasTotales;
+  this.paginaActual = 0;
+}
+public void leer(int paginas) {
+  paginaActual += paginas;
+     if (paginaActual >= paginasTotales) {
+  paginaActual = paginasTotales;
+  System.out.println("Terminaste el libro.");
+    }
+}
+public void mostrarProgreso() {
+  double porcentaje = ((double) paginaActual / paginasTotales) * 100;
+   System.out.println("Título: " + titulo);
+   System.out.println("Autor: " + autor);
+   System.out.println("Pagina actual: " + paginaActual);
+   System.out.println("Paginas totales: " + paginasTotales);
+   System.out.println("Progreso: " + porcentaje + "%");
+}
+
+ public static void main(String[] args) {
+   Libro libro = new Libro("Mujercitas", "Louisa May Alcot", 432);
+libro.mostrarProgreso();
+  libro.leer(100);
+  libro.mostrarProgreso();
+  libro.leer(50);
+  libro.mostrarProgreso();
+
+  libro.leer(200);
+   libro.mostrarProgreso();
+}
+}
