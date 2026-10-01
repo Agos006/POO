@@ -1,0 +1,47 @@
+public class Contador {
+
+    private int valor;
+    public Contador() {
+        valor = 0;
+    }
+    public Contador(int valorInicial) {
+        valor = valorInicial;
+    }
+    public void incrementar() {
+        valor++;
+    }
+    public void decrementar() {
+        if (valor > 0) {
+            valor--;
+        }
+    }
+    public void resetear() {
+        valor = 0;
+    }
+    public int getValor() {
+        return valor;
+    }
+
+    public static void main(String[] args) {
+
+        Contador contador1 = new Contador();
+
+        System.out.println("Valor inicial: " + contador1.getValor());
+
+        contador1.incrementar();
+        contador1.incrementar();
+
+        System.out.println("Después de incrementar: " + contador1.getValor());
+        contador1.decrementar();
+        System.out.println("Después de decrementar: " + contador1.getValor());
+        contador1.resetear();
+        System.out.println("Después de resetear: " + contador1.getValor());
+
+        Contador contador2 = new Contador(5);
+
+        System.out.println("Segundo contador: " + contador2.getValor());
+        contador2.decrementar();
+
+        System.out.println("Segundo contador después de decrementar: " + contador2.getValor());
+    }
+}
