@@ -1,0 +1,53 @@
+public class CuentaBancaria {
+private String titular;
+private double saldo;
+    public CuentaBancaria(String titular, double saldoInicial) {
+        this.titular = titular;
+        this.saldo = saldoInicial;
+    }
+
+// Getter del titular
+public String getTitular() {
+return titular;
+}
+// Setter del titular
+public void setTitular(String titular) {
+this.titular = titular;
+}
+// Getter del saldo
+public double getSaldo() {
+return saldo;
+}
+
+// Deposito del dinero
+public void depositar(double monto) {
+if (monto > 0) {
+saldo += monto;
+System.out.println("Depósito realizado correctamente.");
+} else {
+System.out.println("El monto a depositar debe ser mayor que cero.");
+}
+}
+public void retirar(double monto) {
+  if (monto <= 0) {
+System.out.println("El monto a retirar debe ser mayor que cero.");
+} else if (monto > saldo) {
+System.out.println("Fondos insuficientes para realizar el retiro.");
+} else {
+saldo -= monto;
+System.out.println("Retiro realizado correctamente.");
+}
+}
+
+    public static void main(String[] args) {
+CuentaBancaria cuenta = new CuentaBancaria("Agostina", 10000);
+System.out.println("Titular: " + cuenta.getTitular());
+System.out.println("Saldo inicial: $" + cuenta.getSaldo());
+cuenta.depositar(5000);
+System.out.println("Saldo después del depósito: $" + cuenta.getSaldo());
+cuenta.retirar(3000);
+System.out.println("Saldo después del retiro: $" + cuenta.getSaldo());
+cuenta.retirar(20000);
+ System.out.println("Saldo final: $" + cuenta.getSaldo());
+    }
+}
