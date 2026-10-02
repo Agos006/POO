@@ -1,0 +1,57 @@
+class Producto {
+
+private String nombre;
+private double precio;
+
+public Producto(String nombre, double precio) {
+this.nombre = nombre;
+this.precio = precio;
+}
+
+public String getNombre() {
+return nombre;
+}
+public double getPrecio() {
+return precio;
+}
+}
+public class CarritoDeCompras {
+private ArrayList<Producto> productos;
+
+public CarritoDeCompras() {
+productos = new ArrayList<>();
+}
+public void agregarProducto(Producto producto) {
+productos.add(producto);
+}
+public double calcularTotal() {
+double total = 0.0;
+  for (Producto producto : productos) {
+total += producto.getPrecio();
+} 
+return total;
+}
+public void mostrarDetalle() {
+System.out.println("===== DETALLE DEL CARRITO =====");
+for (Producto producto : productos) {
+System.out.println(
+"Producto: " + producto.getNombre() +
+"Precio: $" + producto.getPrecio()
+);
+}
+System.out.println("-------------------------------");
+System.out.println("Total a abonar: $" + calcularTotal());
+}
+public static void main(String[] args) {
+  Producto producto1 = new Producto("Remera", 15000);
+  Producto producto2 = new Producto("Pantalón", 30000);
+  Producto producto3 = new Producto("Zapatillas", 50000);
+
+CarritoDeCompras carrito = new CarritoDeCompras();
+carrito.agregarProducto(producto1);
+carrito.agregarProducto(producto2);
+carrito.agregarProducto(producto3);
+
+carrito.mostrarDetalle();
+}
+}
